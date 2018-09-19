@@ -1,7 +1,7 @@
 import PerfectScrollbar from 'perfect-scrollbar';
 
 var script = {
-  name: 'PeftectScrollbar',
+  name: 'PerfectScrollbar',
   props: {
     options: {
       type: Object,
@@ -65,7 +65,7 @@ var script = {
     const component = (typeof script$$1 === 'function' ? script$$1.options : script$$1) || {};
 
     // For security concerns, we use only base name in production mode.
-    component.__file = "/Users/merc/Work/OpenSource/vue2-perfect-scrollbar/src/Scrollbar.vue";
+    component.__file = "Scrollbar.vue";
 
     if (!component.render) {
       component.render = template.render;
@@ -97,18 +97,25 @@ var script = {
   );
 
 function install (Vue, settings) {
-  if (settings.options) {
-    PerfectScrollbar$1.props.options.default = () => {
-      return settings.options
-    };
+  if (settings) {
+    if (settings.name && typeof settings.name === 'string') {
+      PerfectScrollbar$1.name = settings.name;
+    }
+
+    if (settings.options && typeof settings.options === 'object') {
+      PerfectScrollbar$1.props.options.default = () => {
+        return settings.options
+      };
+    }
+
+    if (settings.tag && typeof settings.tag === 'string') {
+      PerfectScrollbar$1.props.tag.default = settings.tag;
+    }
   }
 
-  if (settings.tag) {
-    PerfectScrollbar$1.props.tag.default = settings.tag;
-  }
-
+  console.log(PerfectScrollbar$1.name);
   Vue.component(
-    settings.name ? settings.name : PerfectScrollbar$1.name,
+    PerfectScrollbar$1.name,
     PerfectScrollbar$1
   );
 }
