@@ -75,6 +75,9 @@ const nodeModules = {
       }
     }),
     vue({
+      template: {
+        isProduction: true
+      },
       style: false,
       css: false
     })
