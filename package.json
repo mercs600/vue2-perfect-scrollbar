@@ -17,7 +17,17 @@
     "test": "karma start --single-run",
     "test:dev": "karma start --single-run=false"
   },
-  "author": "Adam Marcinkowski",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mercs600/vue2-perfect-scrollbar"
+  },
+  "author": "Adam Marcinkowski <developer@mercs600.pl>",
+  "keywords": [
+    "frontend",
+    "scroll",
+    "scrollbar",
+    "vue"
+  ],
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.0.0",
