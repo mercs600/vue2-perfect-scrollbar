@@ -13,7 +13,7 @@ describe('Scrollbar.vue', () => {
     expect(wrapper.find('.ps').classes('ps--active-y')).to.be.true
   })
 
-  it('PerfectScrollbar should not be initiaized without slot', () => {
+  it('PerfectScrollbar should not be initialized without slot', () => {
     const wrapper = shallowMount(Scrollbar, {
       attachToDocument: true
     })

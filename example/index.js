@@ -3,7 +3,7 @@ import App from './App.vue'
 import Vue2PerfectScrollbar from '../src'
 
 Vue.use(Vue2PerfectScrollbar, {
-  name: 'v-scroll'
+  name: 'scroll'
 })
 
 /* eslint-disable no-new */

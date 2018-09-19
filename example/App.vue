@@ -1,11 +1,11 @@
 <template>
   <div>
-    <v-scroll
+    <scroll
       ref="scroll"
       class="container"
     >
       <p> {{ content }} </p>
-    </v-scroll>
+    </scroll>
   </div>
 </template>
 

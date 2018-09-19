@@ -1,18 +1,24 @@
 import PerfectScrollbar from './Scrollbar.vue'
 
 function install (Vue, settings) {
-  if (settings.options) {
-    PerfectScrollbar.props.options.default = () => {
-      return settings.options
+  if (settings) {
+    if (settings.name && typeof settings.name === 'string') {
+      PerfectScrollbar.name = settings.name
+    }
+
+    if (settings.options && typeof settings.options === 'object') {
+      PerfectScrollbar.props.options.default = () => {
+        return settings.options
+      }
+    }
+
+    if (settings.tag && typeof settings.tag === 'string') {
+      PerfectScrollbar.props.tag.default = settings.tag
     }
   }
 
-  if (settings.tag) {
-    PerfectScrollbar.props.tag.default = settings.tag
-  }
-
   Vue.component(
-    settings.name ? settings.name : PerfectScrollbar.name,
+    PerfectScrollbar.name,
     PerfectScrollbar
   )
 }

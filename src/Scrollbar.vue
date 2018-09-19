@@ -1,7 +1,7 @@
 <script>
 import PerfectScrollbar from 'perfect-scrollbar'
 export default {
-  name: 'PeftectScrollbar',
+  name: 'PerfectScrollbar',
   props: {
     options: {
       type: Object,
