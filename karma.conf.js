@@ -1,4 +1,5 @@
 var webpackConfig = require('./webpack.config')
+delete webpackConfig.output
 delete webpackConfig.entry
 module.exports = function (config) {
   config.set({
