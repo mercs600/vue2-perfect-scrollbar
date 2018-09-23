@@ -1,2 +1,17 @@
-/node_modules/
-/.vscode
+# dependencies
+node_modules
+
+# logs
+npm-debug.log
+
+# Nuxt build
+.nuxt
+
+# Nuxt generate
+dist
+
+# IDE
+.idea
+.DS_Store
+.editorconfig
+.vscode/
