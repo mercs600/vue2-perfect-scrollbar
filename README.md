@@ -101,7 +101,7 @@ You can listen on every event which offer you perfect-scrollbar. [Read more](htt
 
 # DEMO
 
-Soon... but you can fork example from [codesandbox](https://codesandbox.io/embed/32o7m59xzm)
+[https://mercs600.github.io/vue2-perfect-scrollbar/](https://mercs600.github.io/vue2-perfect-scrollbar/). You can also fork example from [codesandbox](https://codesandbox.io/embed/32o7m59xzm)
 
 # Cookbook
 
