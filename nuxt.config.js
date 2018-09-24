@@ -34,7 +34,7 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    'styles/jekyll-theme-cayman.scss'
+
   ],
 
   scss: [
