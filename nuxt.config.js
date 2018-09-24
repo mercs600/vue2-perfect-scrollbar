@@ -34,7 +34,7 @@ module.exports = {
   ** Global CSS
   */
   css: [
-
+    'flexboxgrid2'
   ],
 
   scss: [

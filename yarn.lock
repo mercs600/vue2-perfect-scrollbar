@@ -2801,6 +2801,12 @@ flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
 
+flexboxgrid2@^7.2.1:
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/flexboxgrid2/-/flexboxgrid2-7.2.1.tgz#3ffb9661ca5a9e96468eae648f8caf279bd0b2a4"
+  dependencies:
+    normalize.css "^7.0.0"
+
 flush-write-stream@^1.0.0:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/flush-write-stream/-/flush-write-stream-1.0.3.tgz#c5d586ef38af6097650b49bc41b55fabb19f35bd"
@@ -4341,6 +4347,10 @@ normalize-url@^3.0.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-3.3.0.tgz#b2e1c4dc4f7c6d57743df733a4f5978d18650559"
 
+normalize.css@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/normalize.css/-/normalize.css-7.0.0.tgz#abfb1dd82470674e0322b53ceb1aaf412938e4bf"
+
 npm-bundled@^1.0.1:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/npm-bundled/-/npm-bundled-1.0.5.tgz#3c1732b7ba936b3a10325aef616467c0ccbcc979"
@@ -4732,6 +4742,10 @@ pbkdf2@^3.0.3:
     ripemd160 "^2.0.1"
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
+
+perfect-scrollbar@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/perfect-scrollbar/-/perfect-scrollbar-1.4.0.tgz#5d014ef9775e1f43058a1dbae9ed1daf0e7091f1"
 
 performance-now@^2.1.0:
   version "2.1.0"
@@ -6885,6 +6899,12 @@ vue-template-compiler@^2.5.17:
 vue-template-es2015-compiler@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.6.0.tgz#dc42697133302ce3017524356a6c61b7b69b4a18"
+
+vue2-perfect-scrollbar@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/vue2-perfect-scrollbar/-/vue2-perfect-scrollbar-1.0.2.tgz#fe1b705b9f9d57cedbdf35c96009bf7d7b793413"
+  dependencies:
+    perfect-scrollbar "^1.4.0"
 
 vue@^2.5.17:
   version "2.5.17"

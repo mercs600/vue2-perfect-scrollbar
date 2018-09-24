@@ -20,7 +20,7 @@
 
     <main
       id="content"
-      class="main-content"
+      class="main-content container"
       role="main">
       <nuxt/>
       <footer class="site-footer">

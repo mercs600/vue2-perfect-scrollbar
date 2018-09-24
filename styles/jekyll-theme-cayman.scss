@@ -79,6 +79,19 @@ a {
     border-color: rgba(255, 255, 255, 0.3);
   }
 
+  &--inverse {
+    &,
+    &:hover {
+      border-color: $header-bg-color;
+      background-color: $section-headings-color;
+      color: $header-heading-color;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
   + .btn {
     margin-left: 1rem;
   }
@@ -162,24 +175,24 @@ a {
 .main-content {
   word-wrap: break-word;
 
-  :first-child {
+  > *:first-child {
     margin-top: 0;
   }
 
   @include large {
-    max-width: 64rem;
-    padding: 2rem 6rem;
-    margin: 0 auto;
+    // max-width: 64rem;
+    // padding: 2rem 6rem;
+    // margin: 0 auto;
     font-size: 1.1rem;
   }
 
   @include medium {
-    padding: 2rem 4rem;
+    // padding: 2rem 4rem;
     font-size: 1.1rem;
   }
 
   @include small {
-    padding: 2rem 1rem;
+    // padding: 2rem 1rem;
     font-size: 1rem;
   }
 
@@ -361,4 +374,8 @@ a {
 
 .site-footer-credits {
   color: $blockquote-text-color;
+}
+
+.text-center {
+  text-align: center;
 }
