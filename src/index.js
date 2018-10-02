@@ -1,6 +1,6 @@
-import PerfectScrollbar from './Scrollbar.vue'
+import PerfectScrollbar from './Scrollbar'
 
-function install (Vue, settings) {
+export function install (Vue, settings) {
   if (settings) {
     if (settings.name && typeof settings.name === 'string') {
       PerfectScrollbar.name = settings.name

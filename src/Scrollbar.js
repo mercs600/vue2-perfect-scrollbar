@@ -1,4 +1,3 @@
-<script>
 import PerfectScrollbar from 'perfect-scrollbar'
 export default {
   name: 'PerfectScrollbar',
@@ -43,10 +42,3 @@ export default {
       this.$slots.default)
   }
 }
-</script>
-<style src="perfect-scrollbar/css/perfect-scrollbar.css"/>
-<style>
-.ps {
-  position: relative;
-}
-</style>

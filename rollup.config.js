@@ -1,11 +1,8 @@
-import { writeFile } from 'fs'
 import buble from 'rollup-plugin-buble'
 import { uglify } from 'rollup-plugin-uglify'
 import resolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
 import pkg from './package.json'
-import css from 'rollup-plugin-css-only'
-import vue from 'rollup-plugin-vue'
 
 const browser = {
   input: 'src/index.js',
@@ -15,16 +12,11 @@ const browser = {
     file: pkg.browser
   },
   plugins: [
-    vue({
-      template: {
-        isProduction: true
-      }
-    }),
+    buble(),
     resolve({
-      browser: true
+      browser: true, jsnext: true, main: true
     }),
-    commonjs(),
-    buble()
+    commonjs()
   ]
 }
 
@@ -36,13 +28,8 @@ const browserMin = {
     file: 'dist/vue2-perfect-scrollbar.umd.min.js'
   },
   plugins: [
-    vue({
-      template: {
-        isProduction: true
-      }
-    }),
     resolve({
-      browser: true
+      browser: true, jsnext: true, main: true
     }),
     commonjs(),
     buble(),
@@ -63,24 +50,6 @@ const nodeModules = {
     }
   ],
   plugins: [
-    css({
-      output: (styles, styleNodes) => {
-        writeFile(pkg.style, styles, (err) => {
-          if (err) {
-            console.log(err)
-          } else {
-            resolve()
-          }
-        })
-      }
-    }),
-    vue({
-      template: {
-        isProduction: true
-      },
-      style: false,
-      css: false
-    })
   ],
   external: [ 'perfect-scrollbar' ]
 }
