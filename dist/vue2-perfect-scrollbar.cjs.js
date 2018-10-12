@@ -33,10 +33,19 @@ var PerfectScrollbar$1 = {
   updated () {
     this.update();
   },
+  beforeDestroy () {
+    this.destroy();
+  },
   methods: {
     update () {
       if (this.ps) {
         this.ps.update();
+      }
+    },
+    destroy () {
+      if (this.ps) {
+        this.ps.destroy();
+        this.ps = null;
       }
     }
   },

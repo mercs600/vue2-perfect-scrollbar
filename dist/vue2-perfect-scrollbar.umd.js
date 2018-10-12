@@ -1346,10 +1346,19 @@
     updated: function updated () {
       this.update();
     },
+    beforeDestroy: function beforeDestroy () {
+      this.destroy();
+    },
     methods: {
       update: function update () {
         if (this.ps) {
           this.ps.update();
+        }
+      },
+      destroy: function destroy () {
+        if (this.ps) {
+          this.ps.destroy();
+          this.ps = null;
         }
       }
     },
