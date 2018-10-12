@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 import { shallowMount } from '@vue/test-utils'
-import Scrollbar from '../../src/Scrollbar.vue'
+import Scrollbar from '../../src/Scrollbar'
 
 describe('Scrollbar.vue', () => {
   it('PerfectScrollbar should be initialized with passed slot as text', () => {
