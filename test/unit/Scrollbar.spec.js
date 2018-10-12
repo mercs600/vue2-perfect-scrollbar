@@ -19,4 +19,21 @@ describe('Scrollbar.vue', () => {
     })
     expect(wrapper.find('.ps').classes('ps--active-y')).to.be.false
   })
+
+  it('this.ps should be null after destroy', () => {
+    const wrapper = shallowMount(Scrollbar, {
+      attachToDocument: true
+    })
+    wrapper.destroy()
+    expect(wrapper.vm.ps).to.be.null
+  })
+
+  it('Component should remove reference do HTMLElement after destroy', () => {
+    const wrapper = shallowMount(Scrollbar, {
+      attachToDocument: true
+    })
+    let psObject = wrapper.vm.ps
+    wrapper.destroy()
+    expect(psObject.element).to.be.null
+  })
 })
