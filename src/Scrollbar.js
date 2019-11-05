@@ -46,6 +46,7 @@ export default {
     return h(this.tag,
       {
         ref: 'container',
+        class: 'ps',
         on: this.$listeners
       },
       this.$slots.default)
