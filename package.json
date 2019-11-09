@@ -11,6 +11,7 @@
   "module": "dist/vue2-perfect-scrollbar.esm.js",
   "browser": "dist/vue2-perfect-scrollbar.umd.js",
   "style": "dist/vue2-perfect-scrollbar.css",
+  "types": "./types/vue2-perfect-scrollbar.d.ts",
   "scripts": {
     "build": "rollup -c --environment production",
     "build:css": "postcss src/style.css -o dist/vue2-perfect-scrollbar.min.css --env production && postcss src/style.css -o dist/vue2-perfect-scrollbar.css",
