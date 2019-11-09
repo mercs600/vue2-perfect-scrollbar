@@ -15,6 +15,10 @@ export function install (Vue, settings) {
     if (settings.tag && typeof settings.tag === 'string') {
       PerfectScrollbar.props.tag.default = settings.tag
     }
+
+    if (settings.watchOptions && typeof settings.watchOptions === 'boolean') {
+      PerfectScrollbar.props.watchOptions = settings.watchOptions
+    }
   }
 
   Vue.component(
