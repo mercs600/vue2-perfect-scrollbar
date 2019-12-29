@@ -58,6 +58,11 @@ Tag which will be render as perfect scrollbar container
 
 **Default**: `div`
 
+#### `watchOptions {Boolean}`
+Set true if you want to update perfect-scrollbar on options change
+
+**Default**: `false`
+
 #### `options {Object}`: [Options](https://github.com/utatti/perfect-scrollbar#options)
 perfect-scrollbar options.
 
@@ -93,6 +98,11 @@ export default {
 Tag which will be render as perfect scrollbar container
 
 **Default**: `div`
+
+#### `watchOptions {Boolean}`
+Set true if you want to update perfect-scrollbar on options change
+
+**Default**: `false`
 
 #### `options {Object}`: [Options](https://github.com/utatti/perfect-scrollbar#options)
 perfect-scrollbar options.

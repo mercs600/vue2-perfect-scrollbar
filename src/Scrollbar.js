@@ -11,6 +11,11 @@ export default {
       type: String,
       required: false,
       default: 'div'
+    },
+    watchOptions: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   data () {
@@ -18,9 +23,20 @@ export default {
       ps: null
     }
   },
+  watch: {
+    watchOptions (shouldWatch) {
+      if (!shouldWatch && this.watcher) {
+        this.watcher()
+      } else {
+        this.createWatcher()
+      }
+    }
+  },
   mounted () {
-    if (!(this.ps && this.$isServer)) {
-      this.ps = new PerfectScrollbar(this.$refs.container, this.options)
+    this.create()
+
+    if (this.watchOptions) {
+      this.createWatcher()
     }
   },
   updated () {
@@ -30,6 +46,19 @@ export default {
     this.destroy()
   },
   methods: {
+    create () {
+      if (!(this.ps && this.$isServer)) {
+        this.ps = new PerfectScrollbar(this.$refs.container, this.options)
+      }
+    },
+    createWatcher () {
+      this.watcher = this.$watch('options', () => {
+        this.destroy()
+        this.create()
+      }, {
+        deep: true
+      })
+    },
     update () {
       if (this.ps) {
         this.ps.update()
