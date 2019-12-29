@@ -12,6 +12,11 @@ var PerfectScrollbar$1 = {
       type: String,
       required: false,
       default: 'div'
+    },
+    watchOptions: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   data () {
@@ -19,9 +24,20 @@ var PerfectScrollbar$1 = {
       ps: null
     }
   },
+  watch: {
+    watchOptions (shouldWatch) {
+      if (!shouldWatch && this.watcher) {
+        this.watcher();
+      } else {
+        this.createWatcher();
+      }
+    }
+  },
   mounted () {
-    if (!(this.ps && this.$isServer)) {
-      this.ps = new PerfectScrollbar(this.$refs.container, this.options);
+    this.create();
+
+    if (this.watchOptions) {
+      this.createWatcher();
     }
   },
   updated () {
@@ -31,6 +47,19 @@ var PerfectScrollbar$1 = {
     this.destroy();
   },
   methods: {
+    create () {
+      if (!(this.ps && this.$isServer)) {
+        this.ps = new PerfectScrollbar(this.$refs.container, this.options);
+      }
+    },
+    createWatcher () {
+      this.watcher = this.$watch('options', () => {
+        this.destroy();
+        this.create();
+      }, {
+        deep: true
+      });
+    },
     update () {
       if (this.ps) {
         this.ps.update();
@@ -68,6 +97,10 @@ function install (Vue, settings) {
 
     if (settings.tag && typeof settings.tag === 'string') {
       PerfectScrollbar$1.props.tag.default = settings.tag;
+    }
+
+    if (settings.watchOptions && typeof settings.watchOptions === 'boolean') {
+      PerfectScrollbar$1.props.watchOptions = settings.watchOptions;
     }
   }
 

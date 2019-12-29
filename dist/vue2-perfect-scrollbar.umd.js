@@ -1331,6 +1331,11 @@
         type: String,
         required: false,
         default: 'div'
+      },
+      watchOptions: {
+        type: Boolean,
+        required: false,
+        default: false
       }
     },
     data: function data () {
@@ -1338,9 +1343,20 @@
         ps: null
       }
     },
+    watch: {
+      watchOptions: function watchOptions (shouldWatch) {
+        if (!shouldWatch && this.watcher) {
+          this.watcher();
+        } else {
+          this.createWatcher();
+        }
+      }
+    },
     mounted: function mounted () {
-      if (!(this.ps && this.$isServer)) {
-        this.ps = new PerfectScrollbar(this.$refs.container, this.options);
+      this.create();
+
+      if (this.watchOptions) {
+        this.createWatcher();
       }
     },
     updated: function updated () {
@@ -1350,6 +1366,21 @@
       this.destroy();
     },
     methods: {
+      create: function create () {
+        if (!(this.ps && this.$isServer)) {
+          this.ps = new PerfectScrollbar(this.$refs.container, this.options);
+        }
+      },
+      createWatcher: function createWatcher () {
+        var this$1 = this;
+
+        this.watcher = this.$watch('options', function () {
+          this$1.destroy();
+          this$1.create();
+        }, {
+          deep: true
+        });
+      },
       update: function update () {
         if (this.ps) {
           this.ps.update();
@@ -1387,6 +1418,10 @@
 
       if (settings.tag && typeof settings.tag === 'string') {
         PerfectScrollbar$1.props.tag.default = settings.tag;
+      }
+
+      if (settings.watchOptions && typeof settings.watchOptions === 'boolean') {
+        PerfectScrollbar$1.props.watchOptions = settings.watchOptions;
       }
     }
 
