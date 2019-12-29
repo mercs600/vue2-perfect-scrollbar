@@ -15,12 +15,21 @@ export default {
     watchOptions: {
       type: Boolean,
       required: false,
-      default: true
+      default: false
     }
   },
   data () {
     return {
       ps: null
+    }
+  },
+  watch: {
+    watchOptions (shouldWatch) {
+      if (!shouldWatch && this.watcher) {
+        this.watcher()
+      } else {
+        this.createWatcher()
+      }
     }
   },
   mounted () {
@@ -43,7 +52,7 @@ export default {
       }
     },
     createWatcher () {
-      this.$watch('options', () => {
+      this.watcher = this.$watch('options', () => {
         this.destroy()
         this.create()
       }, {
