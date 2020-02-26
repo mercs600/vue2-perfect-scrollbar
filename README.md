@@ -42,6 +42,15 @@ So then you can use this plugin in each component as
 </perfect-scrollbar>
 ```
 
+This plugin will generate a container with ".ps" class name, you need to customize the height of the container
+
+```css
+/* example */
+.ps {
+  height: 400px;
+}
+```
+
 [![Edit Vue Template](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/wn7q7o9ww7)
 
 ### Global options
