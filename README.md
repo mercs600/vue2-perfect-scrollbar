@@ -126,4 +126,25 @@ You can listen on every event which offer you perfect-scrollbar. [Read more](htt
 
 # Cookbook
 
-Soon
+## Custom scrollbar behavior with router.
+
+One of simple solution to setup custom scrollbar to top when your route is changed. 
+
+1. Add perfect scrollbar as wrapper for router-view and add simple ref
+```html
+<perfect-scrollbar ref="scroll">
+  <router-view></router-view>
+</perfect-scrollbar>
+```
+
+2. Add watch on $route to setup scroll container to 0, when route is changed. 
+
+```js
+watch: {
+  $route() {
+    this.$refs.scroll.$el.scrollTop = 0;
+  }
+}
+```
+
+[![Edit vue2-perfect-scrollbar with router](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/vue-routing-example-jbokc?fontsize=14&hidenavigation=1&theme=dark)
