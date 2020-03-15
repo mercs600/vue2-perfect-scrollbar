@@ -40,7 +40,9 @@ export default {
     }
   },
   updated () {
-    this.update()
+    this.$nextTick(() => {
+      this.update()
+    })
   },
   beforeDestroy () {
     this.destroy()
