@@ -47,7 +47,9 @@ var PerfectScrollbar$1 = {
     }
   },
   updated () {
-    this.update();
+    this.$nextTick(() => {
+      this.update();
+    });
   },
   beforeDestroy () {
     this.destroy();

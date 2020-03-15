@@ -1360,7 +1360,11 @@
       }
     },
     updated: function updated () {
-      this.update();
+      var this$1 = this;
+
+      this.$nextTick(function () {
+        this$1.update();
+      });
     },
     beforeDestroy: function beforeDestroy () {
       this.destroy();
