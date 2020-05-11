@@ -118,7 +118,29 @@ perfect-scrollbar options.
 
 # Events
 
-You can listen on every event which offer you perfect-scrollbar. [Read more](https://github.com/utatti/perfect-scrollbar#events)
+You can use Vue.js way to listen on the all perfect-scrollbar events. List of events you can find [here](https://github.com/mdbootstrap/perfect-scrollbar#events)
+
+Simple example:
+```vue
+<template>
+  <div id="app">
+    <perfect-scrollbar @ps-scroll-y="onScroll" ref="scrollbar">
+      <div>your content here</div>
+    </perfect-scrollbar>
+  </div>
+</template>
+
+<script>
+export default {
+  methods: {
+    onScroll(event) {
+      console.log(this.$refs.scrollbar.ps, event);
+    }
+  }
+};
+</script>
+```
+[![Edit Vue Perfect Scrollbar Event Listening](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/vue-perfect-scrollbar-event-listening-e5eil?fontsize=14&hidenavigation=1&theme=dark)
 
 # DEMO
 
