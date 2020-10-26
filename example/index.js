@@ -1,13 +1,14 @@
-import Vue from 'vue'
+import { createApp, h } from 'vue'
 import App from './App.vue'
 import Vue2PerfectScrollbar from '../src'
 import '../src/style.css'
 
-Vue.use(Vue2PerfectScrollbar, {
+const app = createApp({
+  render: () => h(App)
+})
+
+app.use(Vue2PerfectScrollbar, {
   name: 'scroll'
 })
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  render: h => h(App)
-})
+
+app.mount('#app')

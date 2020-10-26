@@ -1,5 +1,6 @@
 const path = require('path')
 const { VueLoaderPlugin } = require('vue-loader')
+const ESLintPlugin = require('eslint-webpack-plugin')
 
 if (process.env.NODE_ENV === 'test') {
   // exclude NPM deps from test bundle
@@ -17,16 +18,6 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        enforce: 'pre',
-        test: /\.(js|vue)$/,
-        include: [
-          path.resolve(__dirname, 'src'),
-          path.resolve(__dirname, 'example')
-        ],
-        exclude: /node_modules/,
-        loader: 'eslint-loader'
-      },
       {
         test: /\.css$/,
         use: ['vue-style-loader', 'css-loader']
@@ -52,5 +43,17 @@ module.exports = {
     compress: true,
     port: 9000
   },
-  plugins: [new VueLoaderPlugin()]
+  plugins: [
+    new VueLoaderPlugin(),
+    new ESLintPlugin({
+      files: [
+        './src',
+        './example'
+      ],
+      extensions: [
+        'js',
+        'vue'
+      ]
+    })
+  ]
 }
