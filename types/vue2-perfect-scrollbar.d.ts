@@ -1,5 +1,5 @@
-import { Vue, VueConstructor } from 'vue/types/vue'
-import { PluginFunction, Component } from "vue"
+import type { Component, App } from "vue"
+import type PerfectScrollbarNamespace from 'perfect-scrollbar'
 
 declare const PerfectScrollbarPlugin: PerfectScrollbar
 
@@ -7,11 +7,12 @@ export default PerfectScrollbarPlugin
 export const PerfectScrollbar: Component
 
 export declare interface PerfectScrollbarOptions {
-  options?: Object,
-  tag?: String
+  options?: PerfectScrollbarNamespace.Options
+  tag?: string
+  name?: string
+  watchOptions?: boolean
 }
 
 export declare interface PerfectScrollbar {
-  install: PluginFunction<PerfectScrollbarOptions>
+  install: (app: App, settings?: PerfectScrollbarOptions) => any;
 }
-
