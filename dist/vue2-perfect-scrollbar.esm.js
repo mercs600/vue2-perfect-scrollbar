@@ -1,4 +1,19 @@
+import { h } from 'vue';
 import PerfectScrollbar from 'perfect-scrollbar';
+
+const eventNames = [
+  'scroll',
+  'ps-scroll-y',
+  'ps-scroll-x',
+  'ps-scroll-up',
+  'ps-scroll-down',
+  'ps-scroll-left',
+  'ps-scroll-right',
+  'ps-y-reach-start',
+  'ps-y-reach-end',
+  'ps-x-reach-start',
+  'ps-x-reach-end'
+];
 
 var PerfectScrollbar$1 = {
   name: 'PerfectScrollbar',
@@ -19,6 +34,7 @@ var PerfectScrollbar$1 = {
       default: false
     }
   },
+  emits: eventNames,
   data () {
     return {
       ps: null
@@ -45,13 +61,17 @@ var PerfectScrollbar$1 = {
       this.update();
     });
   },
-  beforeDestroy () {
+  beforeUnmount () {
     this.destroy();
   },
   methods: {
     create () {
       if (!(this.ps && this.$isServer)) {
         this.ps = new PerfectScrollbar(this.$refs.container, this.options);
+
+        eventNames.forEach(eventName => {
+          this.ps.element.addEventListener(eventName, event => this.$emit(eventName, event));
+        });
       }
     },
     createWatcher () {
@@ -74,14 +94,13 @@ var PerfectScrollbar$1 = {
       }
     }
   },
-  render (h) {
+  render () {
     return h(this.tag,
       {
         ref: 'container',
-        class: 'ps',
-        on: this.$listeners
+        class: 'ps'
       },
-      this.$slots.default)
+      this.$slots.default())
   }
 };
 
