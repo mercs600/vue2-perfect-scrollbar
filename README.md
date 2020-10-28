@@ -1,6 +1,8 @@
 # vue2-perfect-scrollbar
 Vue.js minimalistic but powerful wrapper for perfect scrollbar
 
+Are you looking compatible version with Vue3 ? check https://github.com/mercs600/vue3-perfect-scrollbar 
+
 # Why I Created it ? 
 Because I ❤️ to use [perfect-scrollbar](https://github.com/utatti/perfect-scrollbar) in my projects (🙌 [utatti](https://github.com/utatti)). But also because the current solutions on github are outdated or overcomplicated.
 
