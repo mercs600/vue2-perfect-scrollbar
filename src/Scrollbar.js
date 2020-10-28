@@ -100,6 +100,6 @@ export default {
         ref: 'container',
         class: 'ps'
       },
-      this.$slots.default())
+      this.$slots.default && this.$slots.default())
   }
 }
