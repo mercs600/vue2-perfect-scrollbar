@@ -67,7 +67,7 @@ export default {
   methods: {
     create () {
       if (!(this.ps && this.$isServer)) {
-        this.ps = new PerfectScrollbar(this.$refs.container, this.options)
+        this.ps = new PerfectScrollbar(this.$el, this.options)
 
         eventNames.forEach(eventName => {
           this.ps.element.addEventListener(eventName, event => this.$emit(eventName, event))
@@ -97,7 +97,6 @@ export default {
   render () {
     return h(this.tag,
       {
-        ref: 'container',
         class: 'ps'
       },
       this.$slots.default && this.$slots.default())
