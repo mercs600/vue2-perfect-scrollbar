@@ -1,22 +1,26 @@
-import { expect } from 'chai'
-import { createLocalVue, mount, shallowMount } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import PerfectScrollbar from '../../src/index'
 describe('index.js', () => {
-  let localVue
-
-  beforeEach(function () {
-    localVue = createLocalVue()
-  })
+  let wrapper
+  const App = {
+    template: '<h1>perfect-scrollbar</h1>'
+  }
 
   it('Component PerfectScrollbar shoud exist after global register', () => {
-    localVue.use(PerfectScrollbar)
-    expect(localVue.options.components.PerfectScrollbar).to.be.a('function')
+    wrapper = mount(App, {
+      global: {
+        plugins: [PerfectScrollbar]
+      }
+    })
+    expect(wrapper.__app._context.components.PerfectScrollbar).toBeInstanceOf(Object)
   })
 
   it('Component PerfectScrollbar with specific name "scroll" shoud exist after global register', () => {
-    localVue.use(PerfectScrollbar, {
-      name: 'scroll'
+    wrapper = mount(App, {
+      global: {
+        plugins: [[PerfectScrollbar, { name: 'scroll' }]]
+      }
     })
-    expect(localVue.options.components.scroll).to.be.a('function')
+    expect(wrapper.__app._context.components.scroll).toBeInstanceOf(Object)
   })
 })
