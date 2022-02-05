@@ -5,7 +5,7 @@
 }(this, (function (exports) { 'use strict';
 
   /*!
-   * perfect-scrollbar v1.5.2
+   * perfect-scrollbar v1.5.3
    * Copyright 2021 Hyunje Jun, MDBootstrap and Contributors
    * Licensed under MIT
    */
@@ -568,7 +568,9 @@
       updateGeometry(i);
 
       e.stopPropagation();
-      e.preventDefault();
+      if (e.type.startsWith('touch') && e.changedTouches.length > 1) {
+        e.preventDefault();
+      }
     }
 
     function mouseUpHandler() {
