@@ -1,7 +1,11 @@
 <template>
   <div>
-    <button @click.prevent="changeOptions">Change options</button>
-    <button @click.prevent="watcher = !watcher">Toggle watch on scrollbar</button>
+    <button @click.prevent="changeOptions">
+      Change options
+    </button>
+    <button @click.prevent="watcher = !watcher">
+      Toggle watch on scrollbar
+    </button>
     <scroll
       ref="scroll"
       :options="options"

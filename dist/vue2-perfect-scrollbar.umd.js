@@ -133,10 +133,8 @@
   };
 
   EventElement.prototype.unbindAll = function unbindAll () {
-    var this$1 = this;
-
-    for (var name in this$1.handlers) {
-      this$1.unbind(name);
+    for (var name in this.handlers) {
+      this.unbind(name);
     }
   };
 
@@ -1147,8 +1145,6 @@
   };
 
   var PerfectScrollbar = function PerfectScrollbar(element, userSettings) {
-    var this$2 = this;
-
     var this$1 = this;
     if ( userSettings === void 0 ) { userSettings = {}; }
 
@@ -1166,7 +1162,7 @@
 
     this.settings = defaultSettings();
     for (var key in userSettings) {
-      this$2.settings[key] = userSettings[key];
+      this.settings[key] = userSettings[key];
     }
 
     this.containerWidth = null;
