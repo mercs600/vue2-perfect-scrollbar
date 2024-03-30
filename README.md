@@ -1,6 +1,6 @@
 # 🚧 Repository outdated 
 
-This project (vue2-perfect-scrollbar) is no longer actively developed or maintained. If you are seeking a version compatible with Vue 3, you can find it here: [https://github.com/mercs600/vue3-perfect-scrollbar](vue3-perfect-scrollbar).
+This project (vue2-perfect-scrollbar) is no longer actively developed or maintained. If you are seeking a version compatible with Vue 3, you can find it here: [https://github.com/mercs600/vue3-perfect-scrollbar](https://github.com/mercs600/vue3-perfect-scrollbar).
 
 For any issues or bugs related to the core functionality of the Perfect Scrollbar library itself, please report them directly to the original author at https://perfectscrollbar.com/.
 
